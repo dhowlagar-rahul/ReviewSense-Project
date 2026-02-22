@@ -10,6 +10,7 @@ def get_sentiment(text):
         return "negative", polarity
     else:
         return "neutral", polarity  
+    
 if __name__ == "__main__":
     df = pd.read_csv("Milestone1_Cleaned_Feedback.csv")
     df[["sentiment", "confidence_score"]] = df["clean_feedback"].apply(lambda x: pd.Series(get_sentiment(x)))
@@ -35,3 +36,4 @@ if __name__ == "__main__":
     print("Bar chart saved as:sentiment-bar-chart.png")
     
     print(df[["clean_feedback", "sentiment", "confidence_score"]].head())
+    
